@@ -63,10 +63,11 @@
 | post_code          | string     | null: false                    |
 | area_id            | integer    | null: false                    |
 | municipality       | string     | null: false                    |
-| building_name      | text       | null: false                    |
-| tell_number        | integer    | null: false                    |
+| building_name      | string     |                                |
+| tell_number        | string     | null: false                    |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
+- has_one :purchase
