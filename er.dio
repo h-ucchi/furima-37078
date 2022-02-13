@@ -56,7 +56,7 @@
                 <mxCell id="16" value="Purchases" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;fontFamily=Comic Sans MS;" vertex="1" parent="1">
                     <mxGeometry x="320" y="100" width="160" height="136" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="* user&#10;* item&#10;* shipping_address&#10;* purchase_flag" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;fontFamily=Comic Sans MS;rounded=0;glass=0;horizontal=1;" vertex="1" parent="16">
+                <mxCell id="17" value="* user&#10;* item&#10;* shipping_address" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;fontFamily=Comic Sans MS;rounded=0;glass=0;horizontal=1;" vertex="1" parent="16">
                     <mxGeometry y="30" width="160" height="106" as="geometry"/>
                 </mxCell>
                 <mxCell id="21" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Comic Sans MS;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;startSize=15;endSize=15;strokeWidth=1;jumpStyle=arc;" edge="1" parent="1" source="17" target="11">
