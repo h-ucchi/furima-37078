@@ -29,7 +29,7 @@
 | description        | text       | null: false                    |
 | category_id        | integer    | null: false                    |
 | item_condition_id  | integer    | null: false                    |
-| seller_area_id     | integer    | null: false                    |
+| area_id            | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | delivery_cost_id   | integer    | null: false                    |
 | days_to_ship_id    | integer    | null: false                    |
@@ -61,7 +61,7 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | post_code          | string     | null: false                    |
-| prefecture         | string     | null: false                    |
+| area_id            | integer    | null: false                    |
 | municipality       | string     | null: false                    |
 | building_name      | text       | null: false                    |
 | tell_number        | integer    | null: false                    |
