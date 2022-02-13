@@ -41,6 +41,21 @@
 - has_one :shipping_address
 
 
+## purchases テーブル
+
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| user               | references | null: false, foreign_key: true |
+| item               | references | null: false, foreign_key: true |
+| shipping_address   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- belongs_to :shipping_adress
+
+
 ## shipping_addresses テーブル
 
 | Column             | Type       | Options                        |
