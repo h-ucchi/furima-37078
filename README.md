@@ -15,11 +15,11 @@
 
 ### Association
 
-- has_many :prototype
-- has_many :comments, through: :prototype
+- has_many :items
+- has_many :shipping_addresses, through: :items
 
 
-## item テーブル
+## items テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -35,11 +35,11 @@
 
 ### Association
 
-- belongs_to :users
-- has_many :comments, through: :users
+- belongs_to :user
+- has_one :shipping_address
 
 
-## shipping_address テーブル
+## shipping_addresses テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -51,5 +51,5 @@
 
 ### Association
 
-- belongs_to :users
-- has_many :comments, through: :users
+- belongs_to :user
+- belongs_to :item
