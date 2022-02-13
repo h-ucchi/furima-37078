@@ -63,6 +63,7 @@
 | post_code          | string     | null: false                    |
 | area_id            | integer    | null: false                    |
 | municipality       | string     | null: false                    |
+| address            | string     | null: false                    |
 | building_name      | string     |                                |
 | tell_number        | string     | null: false                    |
 
