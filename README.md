@@ -4,14 +4,16 @@
 
 ## users テーブル
 
-| Column             | Type   | Options                       |
-| ------------------ | ------ | ----------------------------- |
-| email              | string | null: false, unique_key: true |
-| encrypted_password | string | null: false                   |
-| last_name          | string | null: false                   |
-| first_name         | string | null: false                   |
-| nickname           | string | null: false                   |
-| birthday           | string | null: false                   |
+| Column                | Type   | Options                       |
+| --------------------- | ------ | ----------------------------- |
+| nickname              | string | null: false                   |
+| email                 | string | null: false, unique_key: true |
+| encrypted_password    | string | null: false                   |
+| last_name             | string | null: false                   |
+| first_name            | string | null: false                   |
+| last_name_katakana    | string | null: false                   |
+| first_name_katakana   | string | null: false                   |
+| birthday              | date   | null: false                   |
 
 ### Association
 
