@@ -20,10 +20,10 @@
                     <mxGeometry y="30" width="160" height="170" as="geometry"/>
                 </mxCell>
                 <mxCell id="11" value="Shipping_addresses" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;fontFamily=Comic Sans MS;" vertex="1" parent="1">
-                    <mxGeometry x="320" y="490" width="160" height="150" as="geometry"/>
+                    <mxGeometry x="320" y="490" width="160" height="180" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="* post_code&#10;* area&#10;* municipality&#10;* address&#10;* building_name&#10;* tell_number&#10;* user_id" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;fontFamily=Comic Sans MS;rounded=0;glass=0;horizontal=1;" vertex="1" parent="11">
-                    <mxGeometry y="30" width="160" height="120" as="geometry"/>
+                <mxCell id="12" value="* post_code&#10;* area&#10;* municipality&#10;* address&#10;* building_name&#10;* tell_number&#10;* user_id&#10;* purchase_id" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;fontFamily=Comic Sans MS;rounded=0;glass=0;horizontal=1;" vertex="1" parent="11">
+                    <mxGeometry y="30" width="160" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="14" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Comic Sans MS;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;startSize=15;endSize=15;strokeWidth=1;" edge="1" parent="1" source="3" target="17">
                     <mxGeometry relative="1" as="geometry">
@@ -40,10 +40,10 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="16" value="Purchases" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;fontFamily=Comic Sans MS;" vertex="1" parent="1">
-                    <mxGeometry x="320" y="320" width="160" height="136" as="geometry"/>
+                    <mxGeometry x="320" y="337" width="160" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="* user&#10;* item&#10;* shipping_address" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;fontFamily=Comic Sans MS;rounded=0;glass=0;horizontal=1;" vertex="1" parent="16">
-                    <mxGeometry y="30" width="160" height="106" as="geometry"/>
+                <mxCell id="17" value="* user_id&#10;* item_id" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;fontFamily=Comic Sans MS;rounded=0;glass=0;horizontal=1;" vertex="1" parent="16">
+                    <mxGeometry y="30" width="160" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="21" style="edgeStyle=none;html=1;fontFamily=Comic Sans MS;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;startSize=15;endSize=15;strokeWidth=1;jumpStyle=arc;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="17" target="11">
                     <mxGeometry relative="1" as="geometry">

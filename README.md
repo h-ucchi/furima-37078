@@ -47,7 +47,6 @@
 | ------------------ | ---------- | ------------------------------ |
 | user               | references | null: false, foreign_key: true |
 | item               | references | null: false, foreign_key: true |
-| shipping_address   | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -66,6 +65,7 @@
 | address            | string     | null: false                    |
 | building_name      | string     |                                |
 | tell_number        | string     | null: false                    |
+| purchase           | references | null: false, foreign_key: true |
 
 ### Association
 
