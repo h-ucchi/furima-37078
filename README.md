@@ -27,13 +27,13 @@
 | ------------------ | ---------- | ------------------------------ |
 | title              | string     | null: false                    |
 | description        | text       | null: false                    |
-| category           | string     | null: false                    |
-| item_condition     | text       | null: false                    |
-| seller_area        | string     | null: false                    |
-| price              | integer    | null: false, foreign_key: true |
-| delivery_cost      | integer    | null: false, foreign_key: true |
-| days_to_ship       | integer    | null: false, foreign_key: true |
-| purchase_flag      | text       | null: false                    |
+| category_id        | integer    | null: false                    |
+| item_condition_id  | integer    | null: false                    |
+| seller_area_id     | integer    | null: false                    |
+| price              | integer    | null: false                    |
+| delivery_cost_id   | integer    | null: false                    |
+| days_to_ship_id    | integer    | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 
