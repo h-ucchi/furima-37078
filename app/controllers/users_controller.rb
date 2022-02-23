@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-end
 
-def create
-end
+  def create
+  end
 
-def index
+  def index
+  end
+
 end
