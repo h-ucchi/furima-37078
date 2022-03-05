@@ -9,7 +9,7 @@ class Item < ApplicationRecord
     validates :category_id
     validates :item_condition_id
     validates :area_id
-    validates :delivery_day
+    validates :delivery_day_id
     validates :price
     validates :delivery_cost_id
   end
