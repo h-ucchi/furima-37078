@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-
+  before_action :move_to_user_session, only: [:edit, :new]
+  
   def index
     @items = Item.order("created_at DESC")
   end
@@ -22,6 +23,12 @@ class ItemsController < ApplicationController
 
   def pulldown_params
     params.require(:item).permit(:title,:text,:category_id, :item_condition_id, :delivery_cost_id, :area_id, :delivery_day_id)
+  end
+
+  def move_to_user_session
+    unless user_signed_in?
+      redirect_to user_session_path
+    end
   end
 
 end
