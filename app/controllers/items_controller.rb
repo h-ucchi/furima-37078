@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
   private
 
   def pulldown_params
-    params.require(:item).permit(:title,:text,:category_id, :item_condition_id, :delivery_cost_id)
+    params.require(:item).permit(:title,:text,:category_id, :item_condition_id, :delivery_cost_id, :area_id)
   end
 
 end
