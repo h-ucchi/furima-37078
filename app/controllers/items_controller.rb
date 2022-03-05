@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(pulldown_params)
+    @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
@@ -21,8 +21,8 @@ class ItemsController < ApplicationController
 
   private
 
-  def pulldown_params
-    params.require(:item).permit(:title,:text,:category_id, :item_condition_id, :delivery_cost_id, :area_id, :delivery_day_id)
+  def item_params
+    params.require(:item).permit(:title,:description,:category_id, :item_condition_id, :delivery_cost_id, :area_id, :delivery_day_id, :image, :price).merge(user_id: current_user.id)
   end
 
   def move_to_user_session
