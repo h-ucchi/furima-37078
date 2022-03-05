@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
+  belongs_to :item_condition
 
   with_options presence: true do
     validates :title
@@ -14,5 +15,6 @@ class Item < ApplicationRecord
   end
 
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" } 
+  validates :item_condition_id, numericality: { other_than: 1, message: "can't be blank" } 
 
 end

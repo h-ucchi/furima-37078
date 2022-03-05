@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(category_params)
+    @item = Item.new(category_params, item_condition_params)
     if @item.save
       redirect_to root_path
     else
@@ -22,6 +22,10 @@ class ItemsController < ApplicationController
 
   def category_params
     params.require(:item).permit(:title,:text,:category_id)
+  end
+
+  def item_condition_params
+    params.require(:item).permit(:title,:text,:item_condition_id)
   end
 
 end
