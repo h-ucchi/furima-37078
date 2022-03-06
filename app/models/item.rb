@@ -23,7 +23,7 @@ class Item < ApplicationRecord
   validates :area_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :delivery_day_id, numericality: { other_than: 1, message: "can't be blank" }
 
-  validates :price, numericality: { in: 300..999999999 }
+  validates_inclusion_of :price, in: 300..9999999, message: "は300円から9,999,999円までの金額を登録できます"
   validates :price, format: { with: /\A[0-9]+\z/, message: "半角英数字のみが使えます" }
 
 end
