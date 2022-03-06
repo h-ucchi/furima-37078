@@ -31,7 +31,6 @@
     <% elsif user_signed_in? && current_user.id != @item.user_id %>
     <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
 
-    <% else %>
     <% end %>
 
     <div class="item-explain-box">
