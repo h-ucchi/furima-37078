@@ -24,6 +24,6 @@ class Item < ApplicationRecord
   validates :delivery_day_id, numericality: { other_than: 1, message: "can't be blank" }
 
   validates_inclusion_of :price, in: 300..9999999, message: "は300円から9,999,999円までの金額を登録できます"
-  validates :price, format: { with: /\A[0-9]+\z/, message: "半角英数字のみが使えます" }
+  validates :price, format: { with: /\A[0-9]+\z/, message: "半角数字のみが使えます" }
 
 end
