@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :move_to_user_session, only: [:edit, :new]
+  before_action :move_to_user_session, only: [:new]
   
   def index
-    @items = Item.order("created_at DESC")
+    #@items = Item.order("created_at DESC")
   end
 
   def new
