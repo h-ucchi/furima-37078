@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :move_to_user_session, only: [:new]
+  before_action :move_to_user_session, only: [:new, :edit]
+  before_action :move_to_root, only: [:edit]
   
   def index
     @items = Item.all.order(created_at: :desc)
@@ -28,7 +29,11 @@ class ItemsController < ApplicationController
 
   def update
     item = Item.find(params[:id])
-    item.update(item_params)
+    if item.update(item_params)
+      redirect_to item_path
+    else
+      render :edit
+    end
   end
 
 
