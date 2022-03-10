@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :move_to_user_session, only: [:new]
+  before_action :move_to_user_session, only: [:new, :edit]
+  before_action :set_item, only: [:show, :edit, :update] #before_actionにも順番がある
+  before_action :move_to_root, only: [:edit]
   
   def index
     @items = Item.all.order(created_at: :desc)
@@ -19,7 +21,17 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path
+    else
+      render :edit
+    end
   end
 
 
@@ -29,9 +41,20 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:title,:description,:category_id, :item_condition_id, :delivery_cost_id, :area_id, :delivery_day_id, :image, :price).merge(user_id: current_user.id)
   end
 
+  def set_item #下部のmove_to_user_sessionで@itemを使うので、private内に@itemを定義する必要あり
+    # @itemを定義することで以下の記述が上記にもあれば、before_actionを記述することでまとめられる
+    @item = Item.find(params[:id])
+  end
+
   def move_to_user_session
     unless user_signed_in?
       redirect_to user_session_path
+    end
+  end
+
+  def move_to_root
+    unless current_user.id == @item.user_id
+      redirect_to root_path
     end
   end
 
