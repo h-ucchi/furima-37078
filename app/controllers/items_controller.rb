@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :move_to_user_session, only: [:new, :edit]
-  before_action :set_item, only: [:show, :edit, :update] #before_actionにも順番がある
-  before_action :move_to_root, only: [:edit]
+  before_action :move_to_user_session, only: [:new, :edit, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy] #before_actionにも順番がある
+  before_action :move_to_root, only: [:edit, :destroy]
   
   def index
     @items = Item.all.order(created_at: :desc)
@@ -32,6 +32,11 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to root_path
   end
 
 
