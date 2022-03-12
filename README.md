@@ -41,7 +41,7 @@
 - has_one :purchase
 
 
-## purchases テーブル
+## orders テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -65,8 +65,8 @@
 | address            | string     | null: false                    |
 | building_name      | string     |                                |
 | tell_number        | string     | null: false                    |
-| purchase           | references | null: false, foreign_key: true |
+| order              | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :purchase
+- belongs_to :order
