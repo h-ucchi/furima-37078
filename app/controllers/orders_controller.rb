@@ -4,11 +4,16 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
+  def new
+    @order_shipping_address = OrderShippingAddress.new
+  end
+
   def create
-    @order = Order.new(order_params)
-    if @order.valid?
+    @order_shipping_address = OrderShippingAddress.new(order_params)
+    #@order = Order.new(order_params)
+    if @order_shipping_address.valid?
       pay_item
-      @order.save
+      @order_shipping_address.save
       return redirect_to root_path
     else
       render 'index'
@@ -18,7 +23,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:price).merge(token: params[:token])
+    params.require(:order_shipping_address).permit(:price, :number, :exp_month, :exp_year, :cvc, :post_code, :area_id, :municipality, :address, :building_name, :tell_number).merge(token: params[:token], user_id: current_user.id )
   end
 
   def pay_item
