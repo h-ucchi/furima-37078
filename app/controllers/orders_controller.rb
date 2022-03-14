@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
 
   def index
-    @order = Order.new
+    @orders = Order.all
+    @item = Item.find(params[:item_id])
   end
 
   def new
