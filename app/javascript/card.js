@@ -1,4 +1,7 @@
+window.addEventListener("load", pay);
+
 const pay = () => {
+  console.log("OK")
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY); //公開鍵を環境変数に置き換えた
   const submit = document.getElementById("button");
   submit.addEventListener("click", (e) => {
@@ -23,14 +26,12 @@ const pay = () => {
         debugger;
       }
 
-      document.getElementById("order_number").removeAttribute("name");
-      document.getElementById("order_cvc").removeAttribute("name");
-      document.getElementById("order_exp_month").removeAttribute("name");
-      document.getElementById("order_exp_year").removeAttribute("name");
+      document.getElementById("card_number").removeAttribute("name");
+      document.getElementById("card_cvc").removeAttribute("name");
+      document.getElementById("card_exp_month").removeAttribute("name");
+      document.getElementById("card_exp_year").removeAttribute("name");
 
       document.getElementById("charge-form").submit();
     });
   });
 };
-
-window.addEventListener("load", pay);
