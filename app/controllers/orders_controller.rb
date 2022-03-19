@@ -3,13 +3,11 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-    @item = Item.find(params[:item_id])
     @order_shipping_address = OrderShippingAddress.new
   end
 
   def create
     @order_shipping_address = OrderShippingAddress.new(order_params)
-    @item = Item.find(params[:item_id])
     if @order_shipping_address.valid?
       pay_item
       @order_shipping_address.save
