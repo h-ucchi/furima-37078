@@ -1,6 +1,8 @@
 class OrderShippingAddress
   include ActiveModel::Model
-  attr_accessor :price, :user_id, :item_id, :number, :exp_month, :exp_year, :cvc, :post_code, :area_id, :municipality, :address, :building_name, :tell_number
+  # 今から保存したいテーブル（order, shipping_address）のカラムを入れる
+  # 注意点：addressのテーブルの中には外部キーがあるが、saveメソッドが動いて初めてorderが生成されるので、attr_accessorには不要（入れても意味ない）
+  attr_accessor :user_id, :item_id, :post_code, :area_id, :municipality, :address, :building_name, :tell_number
   attr_accessor :token
 
   # ここにバリデーションの処理を書く
@@ -19,10 +21,12 @@ class OrderShippingAddress
 
   def save
     # 商品情報を保存し、変数orderに代入する
-    order = Order.create(price: price, user_id: user_id)
+    # order= で書くのは、orderテーブルに保存したい情報→orderテーブルのカラムを入れる
+    order = Order.create(user_id: user_id, item_id: item_id)
+    
     # 住所を保存する
     # order_idには、変数orderのidと指定する
-    ShippingAddress.create(post_code: post_code, area_id: area_id, municipality: municipality, address: address, building_name: building_name, tell_number: tell_number, order_id: order.id)
+    shipping_address = ShippingAddress.create(post_code: post_code, area_id: area_id, municipality: municipality, address: address, building_name: building_name, tell_number: tell_number, order_id: order.id)
   end
 
 end
