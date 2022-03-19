@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :move_to_user_session, only: [:index, :create]
+  before_action :move_to_user_session, only: [:index]
   before_action :set_item, only: [:index, :create] #before_actionにも順番がある
   before_action :move_to_root, only: [:index]
 
