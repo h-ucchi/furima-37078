@@ -1,24 +1,21 @@
 class OrderShippingAddress
   include ActiveModel::Model
   attr_accessor :price, :user_id, :item_id, :number, :exp_month, :exp_year, :cvc, :post_code, :area_id, :municipality, :address, :building_name, :tell_number
+  attr_accessor :token
 
   # ここにバリデーションの処理を書く
+  # カード情報のバリデーションは不要（トークン化されているため）
+  # priceのバリデーションも不要（金額情報は保存されていないため）
   with_options presence: true do #建物名以外は必須
-    validates :price
     validates :user_id
     validates :item_id
-    validates :number
-    validates :exp_month
-    validates :exp_year
-    validates :cvc
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :area_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :municipality
     validates :address
     validates :tell_number, format: { with: /\A[0-9]+\z/, message: "半角数字のみが使えます" }
+    validates :token
   end
-
-  validates_inclusion_of :price, in: 300..9999999, message: "は300円から9,999,999円までの金額を登録できます"
 
   def save
     # 商品情報を保存し、変数orderに代入する
