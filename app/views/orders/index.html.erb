@@ -34,7 +34,7 @@
     <%= form_with model: @order_shipping_address, url: item_orders_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%# formオブジェクトは関係するモデルが一つではないので、urlが必要%>
 
-    <%# render "shared/error_messages", model: f.object %>
+    <%= render "shared/error_messages", model: f.object %>
     
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
