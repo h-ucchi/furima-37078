@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :move_to_user_session, only: [:index, :create]
   before_action :set_item, only: [:index, :create] #before_actionにも順番がある
 
   def index
@@ -36,6 +37,12 @@ class OrdersController < ApplicationController
   
   def set_item 
     @item = Item.find(params[:item_id])
+  end
+
+  def move_to_user_session
+    unless user_signed_in?
+      redirect_to user_session_path
+    end
   end
 
 end
