@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :move_to_user_session, only: [:index, :create]
   before_action :set_item, only: [:index, :create] #before_actionにも順番がある
+  before_action :move_to_root, only: [:index]
 
   def index
     @orders = Order.all
@@ -42,6 +43,12 @@ class OrdersController < ApplicationController
   def move_to_user_session
     unless user_signed_in?
       redirect_to user_session_path
+    end
+  end
+
+  def move_to_root
+    if current_user.id == @item.user_id
+      redirect_to root_path
     end
   end
 
