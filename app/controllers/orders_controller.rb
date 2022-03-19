@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create] #before_actionにも順番がある
-  before_action :move_to_root, only: [:create]
 
   def index
     @orders = Order.all
@@ -39,12 +38,6 @@ class OrdersController < ApplicationController
   
   def set_item 
     @item = Item.find(params[:item_id])
-  end
-  
-  def move_to_root
-    unless current_user.id == @item.user_id
-      redirect_to root_path
-    end
   end
 
 end
