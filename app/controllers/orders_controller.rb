@@ -55,7 +55,7 @@ class OrdersController < ApplicationController
   end
 
   def move_to_root_ordered
-  unless @item.order == nil #商品に紐づくorder情報があるかないかを確認する（=ではだめで、==にしないといけない）
+    unless @item.order == nil #商品に紐づくorder情報があるかないかを確認する（=ではだめで、==にしないといけない）
       redirect_to root_path
     end
   end
