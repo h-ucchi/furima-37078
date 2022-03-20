@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   belongs_to :delivery_day
   belongs_to :delivery_cost
   has_one_attached :image
+  has_one :order
 
   with_options presence: true do
     validates :title
