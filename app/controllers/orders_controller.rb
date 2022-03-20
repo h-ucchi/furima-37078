@@ -1,7 +1,9 @@
 class OrdersController < ApplicationController
   before_action :move_to_user_session, only: [:index]
-  before_action :set_item, only: [:index, :create] #before_actionにも順番がある
+  before_action :set_item #before_actionにも順番がある
   before_action :move_to_root, only: [:index]
+  before_action :move_to_root_ordered, only: [:index]
+
 
   def index
     @orders = Order.all
@@ -48,6 +50,12 @@ class OrdersController < ApplicationController
 
   def move_to_root
     if current_user.id == @item.user_id
+      redirect_to root_path
+    end
+  end
+
+  def move_to_root_ordered
+  unless @item.order == nil #商品に紐づくorder情報があるかないかを確認する（=ではだめで、==にしないといけない）
       redirect_to root_path
     end
   end
