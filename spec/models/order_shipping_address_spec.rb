@@ -7,7 +7,6 @@ RSpec.describe OrderShippingAddress, type: :model do
       item = FactoryBot.create(:item)
       #order = FactoryBot.create(:order)
       @order_shipping_address = FactoryBot.build(:order_shipping_address, user_id: user.id, item_id: item.id)
-      sleep(0.5)
     end
 
     # token情報を入れる必要があるが、orderファイルをBeforeActionで生成するとエラーになる。
@@ -24,6 +23,12 @@ RSpec.describe OrderShippingAddress, type: :model do
     end
 
     context '内容に問題がある場合' do
+      it "tokenが空では登録できないこと" do
+        @order_shipping_address.token = nil
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Token can't be blank")
+      end
+      
       it 'post_codeが空だと保存できないこと' do
         @order_shipping_address.post_code = ''
         @order_shipping_address.valid?
