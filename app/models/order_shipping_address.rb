@@ -14,7 +14,7 @@ class OrderShippingAddress
     validates :area_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :municipality
     validates :address
-    validates :tell_number, format: { with: /\A[0-9]+\z/, message: "半角数字のみが使えます" }
+    validates :tell_number, format: { with: /\A[0-9]+\z/, message: "半角数字のみが使えます" }, length: { in: 10..11 }
     validates :token
   end
 
