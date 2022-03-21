@@ -25,7 +25,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @orders = Order.all
   end
 
   def update
