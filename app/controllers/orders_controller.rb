@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
 
 
   def index
-    @orders = Order.all
     @order_shipping_address = OrderShippingAddress.new
   end
 
