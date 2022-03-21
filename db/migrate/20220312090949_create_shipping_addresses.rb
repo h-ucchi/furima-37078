@@ -2,7 +2,7 @@ class CreateShippingAddresses < ActiveRecord::Migration[6.0]
   def change
     create_table :shipping_addresses do |t|
       t.string :post_code,          null: false, default: ""
-      t.integer :area_id,           null: false, foreign_key: true #アクティブハッシュ（都道府県にナンバリングしてデータ作成する）
+      t.integer :area_id,           null: false #アクティブハッシュ（都道府県にナンバリングしてデータ作成する）
       t.string :municipality,       null: false, default: ""
       t.string :address,            null: false, default: ""
       t.string :building_name,                   default: ""
