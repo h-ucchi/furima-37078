@@ -68,6 +68,27 @@ RSpec.describe OrderShippingAddress, type: :model do
         @order_shipping_address.valid?
         expect(@order_shipping_address.errors.full_messages).to include("Item can't be blank")
       end
+
+      it '電話番号が空では購入できない' do
+        @order_shipping_address.tell_number = ''
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Tell number can't be blank")
+      end
+      it '電話番号が9桁以下では購入できない' do
+        @order_shipping_address.tell_number = '1234'
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Tell number is too short (minimum is 10 characters)")
+      end
+      it '電話番号が12桁以上では購入できない' do
+        @order_shipping_address.tell_number = '123456789012'
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Tell number is too long (maximum is 11 characters)")
+      end
+      it '電話番号に半角数字以外が含まれている場合は購入できない（※半角数字以外が一文字でも含まれていれば良い）' do
+        @order_shipping_address.tell_number = '１１１'
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Tell number は半角数字のみが使えます")
+      end
     end
   end
 end
