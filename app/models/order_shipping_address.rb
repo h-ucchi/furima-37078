@@ -2,8 +2,7 @@ class OrderShippingAddress
   include ActiveModel::Model
   # 今から保存したいテーブル（order, shipping_address）のカラムを入れる
   # 注意点：addressのテーブルの中には外部キーがあるが、saveメソッドが動いて初めてorderが生成されるので、attr_accessorには不要（入れても意味ない）
-  attr_accessor :user_id, :item_id, :post_code, :area_id, :municipality, :address, :building_name, :tell_number
-  attr_accessor :token
+  attr_accessor :user_id, :item_id, :post_code, :area_id, :municipality, :address, :building_name, :tell_number, :token
 
   # ここにバリデーションの処理を書く
   # カード情報のバリデーションは不要（トークン化されているため）
