@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :move_to_user_session, only: [:new, :edit, :destroy]
-  before_action :set_item, only: [:show, :edit, :update, :destroy] #before_actionにも順番がある
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :move_to_root, only: [:edit, :destroy]
+  before_action :move_to_root_ordered, only: [:edit]
   
   def index
     @items = Item.all.order(created_at: :desc)
@@ -59,6 +60,12 @@ class ItemsController < ApplicationController
 
   def move_to_root
     unless current_user.id == @item.user_id
+      redirect_to root_path
+    end
+  end
+
+  def move_to_root_ordered
+    unless @item.order == nil #商品に紐づくorder情報があるかないかを確認する（=ではだめで、==にしないといけない）
       redirect_to root_path
     end
   end
