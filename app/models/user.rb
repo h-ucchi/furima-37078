@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  has_many :orders
 
   #全体に空白エラーを表示させる
   #emailとパスワードはdeviseにバリデーション（空欄、パスワードの文字数（6文字））がデフォルトであるので、追記する必要はない
